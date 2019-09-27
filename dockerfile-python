@@ -1,0 +1,13 @@
+FROM python:3-slim
+
+RUN mkdir -p /home/bot && mkdir -p /home/config && mkdir /root/.ssh && chmod -R 700 /root/.ssh
+ADD ./config/ /home/config/
+ADD ./config/id_rsa /root/.ssh/
+RUN chown -R root:root /root/.ssh/
+WORKDIR /home/bot
+
+RUN apt-get update && \
+    apt-get install -y gcc ssh && \
+    pip install -r /home/config/requirements.txt
+
+CMD [ "uwsgi", "--ini", "/home/config/uwsgi.ini", "--http", "0.0.0.0:80" ]
