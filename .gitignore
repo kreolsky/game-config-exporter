@@ -4,3 +4,4 @@ config/id_rsa.pub
 bot/google_oauth2_token.json
 bot/settings.py
 bot/__pycache__/
+read.me
