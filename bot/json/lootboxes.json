@@ -1,0 +1,56 @@
+[
+  {
+    "id": "lbx00010",
+    "decorationId": "UI_icon_gift_1",
+    "name": "firstbox_name",
+    "desc": "firstbox_desc",
+    "isGiftable": false,
+    "price": "",
+    "cargo": ""
+  },
+  {
+    "id": "lbx01000",
+    "decorationId": "UI_icon_gift_1",
+    "name": "shopbox_name",
+    "desc": "shopbox_desc",
+    "isGiftable": false,
+    "price": "",
+    "cargo": ""
+  },
+  {
+    "id": "lbx01100",
+    "decorationId": "UI_icon_gift_1",
+    "name": "giftbox_name",
+    "desc": "giftbox_desc",
+    "isGiftable": true,
+    "price": "",
+    "cargo": ""
+  },
+  {
+    "id": "lbx01200",
+    "decorationId": "UI_icon_gift_1",
+    "name": "dailybox_name",
+    "desc": "dailybox_desc",
+    "isGiftable": false,
+    "price": "",
+    "cargo": ""
+  },
+  {
+    "id": "lbx01300",
+    "decorationId": "UI_icon_gift_1",
+    "name": "regbox_name",
+    "desc": "regbox_desc",
+    "isGiftable": false,
+    "price": "",
+    "cargo": ""
+  },
+  {
+    "id": "lbx01400",
+    "decorationId": "UI_icon_gift_1",
+    "name": "levelbox_name",
+    "desc": "levelbox_desc",
+    "isGiftable": false,
+    "price": "",
+    "cargo": ""
+  }
+]
