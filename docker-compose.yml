@@ -2,14 +2,15 @@ version: '3.7'
 
 # https://testdriven.io/blog/asynchronous-tasks-with-flask-and-redis-queue/
 # http://snakeproject.ru/rubric/article.php?art=docker_flask_06.02.2019
+# https://pythonise.com/feed/flask/building-a-flask-app-with-docker-compose
 
 services:
   bot:
     build:
       context: .
       dockerfile: dockerfile-python
-    image: gss_exporter
-    container_name: gss_exporter_bot
+    image: game-config-exporter
+    container_name: game-config-exporter
     ports:
       - 2980:80
     volumes:
@@ -20,8 +21,8 @@ services:
      - redis
 
   worker:
-    image: gss_exporter
-    container_name: gss_exporter_worker
+    image: game-config-exporter
+    container_name: game-config-worker
     command: rq worker exporter --url redis://redis
     volumes:
      - ./bot/:/home/bot/
@@ -29,5 +30,5 @@ services:
      - redis
 
   redis:
-    container_name: gss_exporter_redis
+    container_name: game-config-redis
     image: redis:5-stretch
