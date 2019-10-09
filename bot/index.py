@@ -6,7 +6,7 @@ from rq import Queue
 from redis import Redis
 import rq_dashboard
 
-from config import telebot_token
+from settings import telebot_token
 from gss_exporter_bot import main as exporter
 
 redis_host = 'redis'
