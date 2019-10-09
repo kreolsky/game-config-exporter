@@ -1,0 +1,89 @@
+[
+  {
+    "id": "silver_sword_id",
+    "name": "silver_sword",
+    "attack": 1,
+    "def": 1,
+    "userLevel": 1,
+    "extra_power": "",
+    "price": [
+      {
+        "currency": "silver",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "gold_sword_id",
+    "name": "gold_sword",
+    "attack": 2,
+    "def": 0.4,
+    "userLevel": 3,
+    "extra_power": [
+      {
+        "abilities": "fire_attack",
+        "power": 5
+      }
+    ],
+    "price": [
+      {
+        "currency": "gold",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "platinum_sword_id",
+    "name": "platinum_sword",
+    "attack": 4,
+    "def": 4.8,
+    "userLevel": 5,
+    "extra_power": [
+      {
+        "abilities": "vampirism",
+        "power": 10
+      }
+    ],
+    "price": [
+      {
+        "currency": "platinum",
+        "amount": 10
+      },
+      {
+        "currency": "ice",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "black_sword_id",
+    "name": "black_sword",
+    "attack": 8,
+    "def": 8.8,
+    "userLevel": 7,
+    "extra_power": [
+      {
+        "abilities": "ice_attack",
+        "power": 10
+      },
+      {
+        "abilities": "fire_attack",
+        "power": 10
+      },
+      {
+        "abilities": "black_attack",
+        "power": 10
+      }
+    ],
+    "price": [
+      {
+        "currency": "platinum",
+        "amount": 10
+      },
+      {
+        "currency": "rat_tail",
+        "amount": 3
+      }
+    ]
+  }
+]

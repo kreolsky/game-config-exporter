@@ -89,47 +89,39 @@ class SSHConnect():
 
 class MessageHandler():
     def __init__(self):
-        self.handler_list = {}
+        self.handlers = {}
 
-    def _add_to_handler_list(self, data):
-        bufer = self.handler_list.get(data['function'].__name__, {})
-
-        if bufer:
-            bufer.update(data)
+    def _add_to_handler_list(self, function, handler_data_dict):
+        if function in self.handlers:
+            self.handlers[function].update(handler_data_dict)
         else:
-            self.handler_list[data['function'].__name__] = data
+            self.handlers[function] = handler_data_dict
 
-    def _command(self, data='', _type=''):
-        if type(data) == str:
-            data = [data, ]
+    def _command(self, handler_type='', handler_data=''):
+        if type(handler_data) == str:
+            handler_data = [handler_data, ]
 
-        def decorator(func):
-            self._add_to_handler_list({'function': func, _type: data})
+        def decorator(function):
+            self._add_to_handler_list(function, {handler_type: handler_data})
 
-            return func
+            return function
             # В классических декораторах тут должен быть wrapper
         return decorator
 
     def command(self, command=''):
-        return self._command(command, _type='command')
+        return self._command(handler_type='command', handler_data=command)
 
     def permission(self, permission=''):
-        return self._command(permission, _type='permission')
+        return self._command(handler_type='permission', handler_data=permission)
 
     def run(self, message):
-        for handler in self.handler_list.values():
-
-            user_id = str(message['message']['from']['id'])
-            message_text = message['message']['text']
-
-            function = handler['function']
-            permission = 'permission' not in handler or user_id in handler['permission']
-            command = any([message_text.startswith(item) for item in handler['command']])
+        for function, handler_data_dict in self.handlers.items():
+            permission = 'permission' not in handler_data_dict or message['user'] in handler_data_dict['permission']
+            command = message['command'].split(' ')[0] in handler_data_dict['command']
 
             if command and permission:
                 function(message)
                 break
-
 
 class GSSTable():
     def __init__(self, table_id, auth_obj):
@@ -175,7 +167,9 @@ class GSSTable():
         key - заголовок столбца с ключами.
         value - заголовок столбца с данными.
         to_num - нужно ли пытаться преобразовывать значения в числа. True (по умолчанию) пытается преобразовать.
-        no_list - нужно ли вытаскивать словари из списков единичной длины. False (по умолчанию) вытаскивает из списков все обьекты КРОМЕ словарей. True - вынимает из список ВСЕ типы обьектов, включая словари.
+        no_list - нужно ли вытаскивать словари из списков единичной длины.
+            False (по умолчанию) вытаскивает из списков все обьекты КРОМЕ словарей.
+            True - вынимает из список ВСЕ типы обьектов, включая словари.
         """
 
         self.get_gspread_data()
