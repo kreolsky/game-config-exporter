@@ -173,5 +173,5 @@ ID таблицы с настройками \ простым конфигом д
   - Cоздать пару ключей (id_rsa, id_rsa.pub) и положить их в config/
     Приватный ключ будет скопирован в недра docker контейнера, публичный же нужно добавить на сервера куда будет ломиться скрипт
   - Содать бота у BotFather телеграма. Узнать токен и инициировать вебхуки
-    telebot_init_string = f'https://api.telegram.org/bot{telebot_token}/setWebhook?url=https://monitor.rfp.poker/useless/{telebot_token}'
+    telebot_init_string = f'https://api.telegram.org/bot{telebot_token}/setWebhook?url={telebot_url}{telebot_token}'
     telebot_del_string = f'https://api.telegram.org/bot{telebot_token}/deleteWebhook'
