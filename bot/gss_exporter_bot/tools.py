@@ -103,7 +103,7 @@ def parse_block(string, br, to_num, no_list):
 
     for line in split_string_by_sep(string, ',', br):
         if line.startswith(br_left):
-            substring = config_to_json(line[1:-1], br, to_num, no_list)
+            substring = config_to_json(line[1:-1], br, to_num, no_list) or []
             if isinstance(substring, list) and len(substring) == 1:
                 substring = substring[0]
 
@@ -112,7 +112,7 @@ def parse_block(string, br, to_num, no_list):
         elif '=' in line:
             key, substring = split_string_by_sep(line, '=', br)
             if substring.startswith(br_left):
-                substring = config_to_json(substring[1:-1], br, to_num, no_list)
+                substring = config_to_json(substring[1:-1], br, to_num, no_list) or []
 
             else:
                 substring = str_to_num(substring, to_num)
@@ -185,7 +185,9 @@ if __name__ == '__main__':
         'allow = {124588016, -283746251}, superuser = {124588016, 211631602, 106874883, 231976253}',
         'name = {{itemsCount = 4, price = 100}, name = {count = 4, total = FALSE}}',
         'id = act00040, trigger = {and = {eq = {08.04.2019, now} | more = {50, hands} | or = {more = {10, consecutiveDays} | more = {100, gold}}}} | id = act00050, trigger = {and = {more = {50, hands}}}',
-        'id = act00040, trigger = {and = {eq = {now = 10.04.2019} | more = {hands = 50} | or = {more = {consecutiveDays = 50} | more = {gold = 100}}}} | id = act00050, trigger = {and = {more = {hands = 50}}}'
+        'id = act00040, trigger = {and = {eq = {now = 10.04.2019} | more = {hands = 50} | or = {more = {consecutiveDays = 50} | more = {gold = 100}}}} | id = act00050, trigger = {and = {more = {hands = 50}}}',
+        '{life = {}}',
+        '{}'
         ]
 
 
