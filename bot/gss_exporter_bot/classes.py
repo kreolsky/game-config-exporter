@@ -72,7 +72,6 @@ class SSHConnect():
         self.copy_dir_to_server(source_path, dest_path, workers=workers)
         shutil.rmtree(source_path)
 
-
     def copy_dir_from_server(self, source_path, dest_path, workers=5):
 
         # Создание если конечной директория не существует
