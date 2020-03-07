@@ -5,8 +5,46 @@
     "name": "firstbox_name",
     "desc": "firstbox_desc",
     "isGiftable": false,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 2000,
+        "amount": 2000
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg00010",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 4,
+            "weight": 100
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg00020",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 6,
+            "weight": 100
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 3,
+            "weight": 100
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "lbx01000",
@@ -14,8 +52,94 @@
     "name": "shopbox_name",
     "desc": "shopbox_desc",
     "isGiftable": false,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 2000,
+        "amount": 2000
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg01200",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 3,
+            "weight": 250
+          },
+          {
+            "count": 4,
+            "weight": 500
+          },
+          {
+            "count": 5,
+            "weight": 250
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01100",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 66,
+            "weight": 415
+          },
+          {
+            "count": 67,
+            "weight": 500
+          },
+          {
+            "count": 68,
+            "weight": 85
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01000",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 12,
+            "weight": 499
+          },
+          {
+            "count": 13,
+            "weight": 501
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01400",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 40
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 40
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "lbx01100",
@@ -23,8 +147,98 @@
     "name": "giftbox_name",
     "desc": "giftbox_desc",
     "isGiftable": true,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 1000,
+        "amount": 1000
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg01200",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 0,
+            "weight": 250
+          },
+          {
+            "count": 1,
+            "weight": 500
+          },
+          {
+            "count": 2,
+            "weight": 250
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01100",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 12,
+            "weight": 85
+          },
+          {
+            "count": 13,
+            "weight": 500
+          },
+          {
+            "count": 14,
+            "weight": 415
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01000",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 5,
+            "weight": 125
+          },
+          {
+            "count": 6,
+            "weight": 500
+          },
+          {
+            "count": 7,
+            "weight": 375
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01400",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 10
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 20
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "lbx01200",
@@ -32,8 +246,90 @@
     "name": "dailybox_name",
     "desc": "dailybox_desc",
     "isGiftable": false,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 200,
+        "amount": 200
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg01200",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 0,
+            "weight": 500
+          },
+          {
+            "count": 1,
+            "weight": 500
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01100",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 2,
+            "weight": 415
+          },
+          {
+            "count": 3,
+            "weight": 500
+          },
+          {
+            "count": 4,
+            "weight": 85
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01000",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 749
+          },
+          {
+            "count": 2,
+            "weight": 251
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01400",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 0,
+            "weight": 100
+          },
+          {
+            "count": 1,
+            "weight": 100
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 0,
+            "weight": 100
+          },
+          {
+            "count": 1,
+            "weight": 100
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "lbx01300",
@@ -41,8 +337,98 @@
     "name": "regbox_name",
     "desc": "regbox_desc",
     "isGiftable": false,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 2000,
+        "amount": 2000
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg01200",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 0,
+            "weight": 250
+          },
+          {
+            "count": 1,
+            "weight": 500
+          },
+          {
+            "count": 2,
+            "weight": 250
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01100",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 66,
+            "weight": 415
+          },
+          {
+            "count": 67,
+            "weight": 500
+          },
+          {
+            "count": 68,
+            "weight": 85
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01000",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 12,
+            "weight": 499
+          },
+          {
+            "count": 13,
+            "weight": 501
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01400",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 50
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 100
+          },
+          {
+            "count": 3,
+            "weight": 50
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "lbx01400",
@@ -50,7 +436,79 @@
     "name": "levelbox_name",
     "desc": "levelbox_desc",
     "isGiftable": false,
-    "price": "",
-    "cargo": ""
+    "price": [
+      {
+        "resourceType": "gold",
+        "resourceId": "gold",
+        "value": 1000,
+        "amount": 1000
+      }
+    ],
+    "cargo": [
+      {
+        "rewardGroupId": "rwg01100",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 64,
+            "weight": 490
+          },
+          {
+            "count": 65,
+            "weight": 500
+          },
+          {
+            "count": 66,
+            "weight": 10
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01000",
+        "isUnique": false,
+        "itemsCount": [
+          {
+            "count": 18,
+            "weight": 375
+          },
+          {
+            "count": 19,
+            "weight": 500
+          },
+          {
+            "count": 20,
+            "weight": 125
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01400",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 50
+          }
+        ]
+      },
+      {
+        "rewardGroupId": "rwg01300",
+        "isUnique": true,
+        "itemsCount": [
+          {
+            "count": 1,
+            "weight": 100
+          },
+          {
+            "count": 2,
+            "weight": 20
+          }
+        ]
+      }
+    ]
   }
 ]

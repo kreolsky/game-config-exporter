@@ -131,7 +131,7 @@ def parse_block(string, br, to_num, no_list):
     return out
 
 
-def config_to_json(string, br='{}', to_num=True, no_list=False):
+def config_to_json(string, br='{}', to_num=True, no_list=False, is_raw=False):
     """
     Парсит строку конфига и складывает результат в список словарей.
     Исходный формат крайне упрощенная и менее формальная версия JSON.
@@ -156,6 +156,9 @@ def config_to_json(string, br='{}', to_num=True, no_list=False):
     'itemsCount = {count = 3, weight = 65 | count = 4, weight = 35}' будет идентична записи:
     'itemsCount = {{count = 3, weight = 65}, {count = 4, weight = 35}}'
     """
+
+    if is_raw:
+        return string
 
     string = str(string)
     out = []
@@ -192,5 +195,4 @@ if __name__ == '__main__':
 
 
     for line in string:
-        print(json.dumps(config_to_json(line), indent=4))
-        print('\n' * 3)
+        print(json.dumps(config_to_json(line, is_raw=True), indent=4))

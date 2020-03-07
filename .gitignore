@@ -1,6 +1,7 @@
 logs/*
 config/id_rsa
 config/id_rsa.pub
+bot/json/*
 bot/google_oauth2_token.json
 bot/settings.py
 __pycache__/

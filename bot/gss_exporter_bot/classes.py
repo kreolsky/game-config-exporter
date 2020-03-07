@@ -96,7 +96,7 @@ class MessageHandler():
         else:
             self.handlers[function] = handler_data_dict
 
-    def _command(self, handler_type='', handler_data=''):
+    def _command(self, handler_type, handler_data):
         if type(handler_data) == str:
             handler_data = [handler_data, ]
 
@@ -107,20 +107,25 @@ class MessageHandler():
             # В классических декораторах тут должен быть wrapper
         return decorator
 
-    def command(self, command=''):
+    def command(self, command=None):
         return self._command(handler_type='command', handler_data=command)
 
-    def permission(self, permission=''):
+    def permission(self, permission):
         return self._command(handler_type='permission', handler_data=permission)
 
     def run(self, message):
-        for function, handler_data_dict in self.handlers.items():
-            permission = 'permission' not in handler_data_dict or message['user'] in handler_data_dict['permission']
-            command = message['command'].split(' ')[0] in handler_data_dict['command']
+        for func, handler_data in self.handlers.items():
+
+            user_id = str(message['message']['from']['id'])
+            message_text = message['message']['text']
+
+            permission = 'permission' not in handler_data or user_id in handler_data['permission']
+            command = not handler_data['command'] or any(message_text.startswith(i) for i in handler_data['command'])
 
             if command and permission:
-                function(message)
+                func(message)
                 break
+
 
 class GSSTable():
     def __init__(self, table_id, auth_obj):
@@ -269,6 +274,7 @@ class GameConfig(GoogleOauth):
                                       key, value in self.settings['documents'].items()}
 
     def set_export_documents(self, documents_names=''):
+        # Выбор какие документы будут экспортированы
         self.get_config_data()
 
         if not documents_names:
@@ -302,7 +308,7 @@ class GameConfig(GoogleOauth):
         return list(self._config_documents.keys())
 
 
-    def _backup_old_configs(self):
+    def _backup_old_configs(self, ssh):
         log_file = 'config_update.log'
         filelist = '_filelist.txt'
         current_time = datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
@@ -319,11 +325,13 @@ class GameConfig(GoogleOauth):
 
     def put_config_to_server(self, backup=False):
         self.save_config_to_local(path=self.settings['path']['local'], workers=5)
+
         ssh = SSHConnect(self.settings['connection'])
         ssh.connect()
 
         if backup:
-            self._backup_old_configs()
+            self._backup_old_configs(ssh)
+
         ssh.move_dir_to_server(self.settings['path']['local'], self.settings['path']['server'])
         ssh.close()
 
