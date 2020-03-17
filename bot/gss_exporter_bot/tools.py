@@ -131,7 +131,7 @@ def parse_block(string, br, to_num, no_list):
     return out
 
 
-def config_to_json(string, br='{}', to_num=True, no_list=False, is_raw=False):
+def config_to_json(string, br='{}', to_num=True, no_list=False, is_text=False):
     """
     Парсит строку конфига и складывает результат в список словарей.
     Исходный формат крайне упрощенная и менее формальная версия JSON.
@@ -157,7 +157,7 @@ def config_to_json(string, br='{}', to_num=True, no_list=False, is_raw=False):
     'itemsCount = {{count = 3, weight = 65}, {count = 4, weight = 35}}'
     """
 
-    if is_raw:
+    if is_text:
         return string
 
     string = str(string)
@@ -190,9 +190,15 @@ if __name__ == '__main__':
         'id = act00040, trigger = {and = {eq = {08.04.2019, now} | more = {50, hands} | or = {more = {10, consecutiveDays} | more = {100, gold}}}} | id = act00050, trigger = {and = {more = {50, hands}}}',
         'id = act00040, trigger = {and = {eq = {now = 10.04.2019} | more = {hands = 50} | or = {more = {consecutiveDays = 50} | more = {gold = 100}}}} | id = act00050, trigger = {and = {more = {hands = 50}}}',
         '{life = {}}',
-        '{}'
         ]
 
+    string_txt = [
+        '<color=#6aefff>New round</color> has | begun',
+        '{0} made a <color=#B451E9>bet</color> {1}',
+        ]
 
     for line in string:
-        print(json.dumps(config_to_json(line, is_raw=True), indent=4))
+        print(json.dumps(config_to_json(line), indent=4))
+
+    for line in string_txt:
+        print(json.dumps(config_to_json(line, is_text=True)))
