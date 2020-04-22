@@ -1,8 +1,8 @@
 logs/*
 __pycache__
 
-config/id_rsa
-config/id_rsa.pub
+.docker/config/id_rsa
+.docker/config/id_rsa.pub
 
 bot/_json
 bot/_tmp
