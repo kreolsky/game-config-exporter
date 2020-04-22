@@ -1,21 +1,31 @@
-from gss_exporter_bot import save_config_to_local, put_config_to_server
+import os
+import gsconfig
+import json
 
-### Полный формат работы с конфигом. Гуглотаблица настроек в коорой много-много ссылок на гуглотаблицы с конфигами
-"""
-ID таблицы с настройками и название файла гуглотокена править в файле settings.py
-По лумолчанию экспортирует все документы. Списком ожно указывать какие документы нужно экспортировать
-Например: save_config_to_local(['one', 'two', 'three']) -- будут экспортированы только
-документы проходящие под названиями one, two, three.
-Путь (относительно положения скрипта) куда будут сохранены json указывается в таблице настроек.
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-Функция возвращает список экспортированных документов.
-"""
+google_oauth2_token_file_path = 'google_oauth2_token.json'
+gspread_id = '18l0UwSwQswrobsfKptLtfiwvEjFCjxyV4Mn3wGIIcIY'
+page_title = 'documents'
 
-# Сохранять локально
-result = save_config_to_local()
+client = gsconfig.GoogleOauth(google_oauth2_token_file_path)
 
-# Экспорт на сервер. Нет смысла использовать одновременно с save_config_to_local()
-# result = put_config_to_server()
 
-# Печатает названия документов которые были сохранены \ выгружены
-print(result)
+gspread = {'gspread_id': gspread_id, 'page_title': page_title}
+
+settings = {
+    'clothes': '1w03vUeO6SLUlfhkCa86hTbRGsZcynJxyFMONHUmGJp4',
+    'category': '1ZVIhyfrU2hsSf3ENO0efSAis2zW8FHLa-izi8o6J1oc',
+    'wardrobe': '1MwRGpqjImvDjBN2ScXFKnitmRll2CBKj3n2YSoolEaM',
+    }
+
+# backup = gsconfig.tools.load_source_from_backup('_backup/dev.backup')
+game_config = gsconfig.GameConfig(client, settings = gspread, backup = {})
+# game_config.set_documents_to_export(['wardrobe', ])
+
+gsconfig.tools.backup_config(game_config, 'dev.backup', '_backup/')
+gsconfig.tools.save_config_documents(game_config, '_json/')
+
+# game_config.set_dummy_page('14ixI_pwYw7JleYUDMcibak8jxUEDrxh2js-yCD8hQA8')
+# out = game_config.fork(owner='zaigraeff@rfp.poker')
+# print(out)

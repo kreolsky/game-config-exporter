@@ -15,7 +15,9 @@ WORKDIR /home/bot
 
 RUN apt-get update && \
     apt-get install -y gcc ssh && \
-    pip install -r /home/config/requirements.txt
+    pip install -r /home/config/requirements.txt && \
+    pip install /home/config/gspread-3.3.0.tar.gz && \
+    pip install /home/config/gsconfig-0.1.0.tar.gz
 
 # CMD [ "uwsgi", "--ini", "/home/config/uwsgi.ini", "--http", "0.0.0.0:80" ]
 CMD ["/cmd.sh"]

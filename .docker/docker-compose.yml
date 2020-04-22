@@ -8,14 +8,14 @@ services:
   bot:
     build:
       context: .
-      dockerfile: dockerfile-python
+      dockerfile: Dockerfile
     image: game-config-exporter
     container_name: game-config-exporter
     ports:
       - 2980:80
     volumes:
-      - ./bot/:/home/bot/
-      - ./logs/:/home/logs/
+      - ./../bot/:/home/bot/
+      - ./../logs/:/home/logs/
     tty: true
     depends_on:
      - redis
@@ -25,7 +25,7 @@ services:
     container_name: game-config-worker
     command: rq worker exporter --url redis://redis
     volumes:
-     - ./bot/:/home/bot/
+     - ./../bot/:/home/bot/
     depends_on:
      - redis
 

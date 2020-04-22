@@ -7,7 +7,7 @@ from redis import Redis
 import rq_dashboard
 
 from settings import telebot_token
-from gss_exporter_bot import main as exporter
+from config_exporter_bot import main as exporter
 
 redis_host = 'redis'
 rq_dashboard.default_settings.RQ_DASHBOARD_REDIS_HOST = redis_host

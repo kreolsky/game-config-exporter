@@ -3,7 +3,6 @@ flask
 rq
 rq_dashboard
 redis
-gspread
 oauth2client
 google-api-python-client
 google-auth-httplib2
